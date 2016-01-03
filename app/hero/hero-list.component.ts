@@ -4,8 +4,8 @@ import {HeroService} from './hero.service';
 
 @Component ({
   selector: 'my-hero-list',
-  templateUrl: '../app/hero/hero-list.html',
-  styleUrls: [ '../app/hero/heroStyle.css']
+  templateUrl: '../app/hero/template/hero-list.html',
+  styleUrls: [ '../app/hero/css/heroStyle.css']
 })
 
 export class HeroListComponent implements OnInit {
@@ -22,5 +22,6 @@ export class HeroListComponent implements OnInit {
 
   onSelect(hero: Hero) {
     this.selectedHero = hero;
+    // route to hero component
   }
 }
