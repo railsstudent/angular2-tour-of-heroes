@@ -14,4 +14,9 @@ export class HeroService {
       setTimeout(()=>resolve(HEROES), 2000) // 2 seconds
     );
   }
+
+  getHero(id) {
+    return Promise.resolve(HEROES).then(heroes
+        => heroes.filter(h => h.id === id)[0]);
+  }
 }
