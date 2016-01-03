@@ -15,8 +15,8 @@ export class HeroService {
     );
   }
 
-  getHero(id) {
-    return Promise.resolve(HEROES).then(heroes
-        => heroes.filter(h => h.id === id)[0]);
+  getHero(id : number | string) {
+    return Promise.resolve(HEROES).then(
+      heroes => heroes.filter(h => h.id === id)[0]) ;
   }
 }
