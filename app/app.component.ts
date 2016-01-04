@@ -17,7 +17,9 @@ import {CrisisCenterComponent} from './crisis/crisis-center.component';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path: '/crisis-center', name: 'CrisisCenter', component: CrisisCenterComponent
+    // crisis center child route
+    {path: '/crisis-center/...', name: 'CrisisCenter',
+            component: CrisisCenterComponent
           , useAsDefault: true },
     {path: '/heroes', name: 'Heroes', component: HeroListComponent},
     {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent}
