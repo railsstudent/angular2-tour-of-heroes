@@ -4,16 +4,7 @@ import { Crisis, CrisisService } from './crisis.service';
 import { DialogService } from '../dialog.service';
 
 @Component({
-  template: `<div *ngIf='crisis'>
-                <h3>{{editName}}</h3>
-                <div>
-                  <label>Name: </label>
-                  <input [(ngModel)]="editName" placeholder="name" />
-                </div>
-                <button (click)="save()">Save</button>
-                <button (click)="cancel()">Cancel</button>
-            </div>
-              `,
+  templateUrl : '../app/crisis/template/crisis-detail.html',
   styles: ['input { width: 20em }']
 })
 export class CrisisDetailComponent implements OnInit, CanDeactivate {

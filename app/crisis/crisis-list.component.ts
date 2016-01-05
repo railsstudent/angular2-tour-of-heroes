@@ -3,13 +3,7 @@ import { Crisis, CrisisService} from './crisis.service';
 import { RouteParams, Router } from 'angular2/router';
 
 @Component({
-    template: `<ul>
-                  <li *ngFor="#crisis of crises"
-                    [class.selected] = "isSelected(crisis)"
-                    (click) = onClick(crisis)>
-                    <span class="badge">{{crisis.id}}</span> {{crisis.name}}
-                  </li>
-              </ul>`
+    templateUrl: '../app/crisis/template/crisis-list.html'
 })
 export class CrisisListComponent implements OnInit {
   public crises: Crisis[];
