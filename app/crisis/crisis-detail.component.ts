@@ -1,6 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router, RouteParams, ComponentInstruction, CanDeactivate } from 'angular2/router';
 import { Crisis, CrisisService } from './crisis.service';
+import { DialogService } from '../dialog.service';
 
 @Component({
   template: `<div *ngIf='crisis'>
@@ -12,22 +13,24 @@ import { Crisis, CrisisService } from './crisis.service';
                 <button (click)="save()">Save</button>
                 <button (click)="cancel()">Cancel</button>
             </div>
-              `
+              `,
+  styles: ['input { width: 20em }']
 })
 export class CrisisDetailComponent implements OnInit, CanDeactivate {
   crisis: Crisis;
   editName: string;
 
   constructor(private _crisisService: CrisisService,
-    private _router: Router, private _routeParams: RouteParams) {
+    private _dialogService: DialogService,
+    private _router: Router,
+    private _routeParams: RouteParams) {
   }
 
-  routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
-    if (!this.crisis && this.crisis.name === this.editName) {
+  routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) : any {
+    if (!this.crisis || this.crisis.name === this.editName) {
         return true;
     }
-
-    return true;
+    return this._dialogService.confirm('Discard changes?');
   }
 
   save() {
