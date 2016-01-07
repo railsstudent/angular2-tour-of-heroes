@@ -23,6 +23,10 @@ export class HeroDetailComponent implements OnInit {
 
   gotoHeroes() {
      // <a [routerLink]="['Heroes']">Heroes</a>
-    this._router.navigate(['Heroes']);
+    if (this.hero) {
+      this._router.navigate(['HeroHighlight', { 'id' : this.hero.id }]);
+    } else {
+      this._router.navigate(['Heroes']);
+    }
   }
 }

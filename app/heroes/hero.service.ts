@@ -1,6 +1,7 @@
 import {HEROES} from './mock-heroes';
 import {Injectable} from 'angular2/core';
 import {Hero} from './hero';
+import {Message} from '../message';
 
 @Injectable()
 export class HeroService {
@@ -18,5 +19,12 @@ export class HeroService {
   getHero(id : number | string) {
     return Promise.resolve(HEROES).then(
       heroes => heroes.filter(h => h.id === id)[0]) ;
+  }
+
+  addHero(hero: Hero) {
+    HEROES.push({'id' : 11 + HEROES.length, 'name' : hero.name});
+    let message : Message =
+      new Message('New hero is added successfully', 'alert alert-success');
+    return Promise.resolve(message);
   }
 }

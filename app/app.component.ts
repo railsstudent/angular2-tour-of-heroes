@@ -22,6 +22,7 @@ import {CrisisCenterComponent} from './crisis/crisis-center.component';
             component: CrisisCenterComponent
           , useAsDefault: true },
     {path: '/heroes', name: 'Heroes', component: HeroListComponent},
+    {path: '/heroes/:id', name: 'HeroHighlight', component: HeroListComponent},
     {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent}
 ])
 export class AppComponent {
