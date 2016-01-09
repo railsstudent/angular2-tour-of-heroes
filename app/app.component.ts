@@ -3,6 +3,7 @@ import {ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
 import {HeroListComponent} from './heroes/hero-list.component';
 import {HeroDetailComponent} from './heroes/hero-detail.component';
 import {CrisisCenterComponent} from './crisis/crisis-center.component';
+import {HeroCenterComponent} from './heroes/hero-center.component';
 
 //The selector specifies a simple CSS selector for a host HTML element named my-app.\
 // Angular creates and displays an instance of our AppComponent wherever it encounters a my-app element
@@ -21,9 +22,8 @@ import {CrisisCenterComponent} from './crisis/crisis-center.component';
     {path: '/crisis-center/...', name: 'CrisisCenter',
             component: CrisisCenterComponent
           , useAsDefault: true },
-    {path: '/heroes', name: 'Heroes', component: HeroListComponent},
-    {path: '/heroes/:id', name: 'HeroHighlight', component: HeroListComponent},
-    {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent}
+    // heroes child route
+    {path: '/heroes/...', name: 'Heroes', component: HeroCenterComponent }
 ])
 export class AppComponent {
   // add title property for application
