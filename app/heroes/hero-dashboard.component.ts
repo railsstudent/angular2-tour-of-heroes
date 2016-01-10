@@ -24,4 +24,3 @@ export class HeroDashboardComponent implements OnInit {
     this._router.navigate(['/heroes/']);
   }
 }
-/heroes/
