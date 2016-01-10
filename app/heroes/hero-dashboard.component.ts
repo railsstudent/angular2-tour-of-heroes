@@ -21,6 +21,6 @@ export class HeroDashboardComponent implements OnInit {
   }
 
   onSelect(hero : Hero) {
-    this._router.navigate(['/heroes/']);
+    this._router.navigate(['/Heroes/HeroDetail', { 'id' : hero.id, dashboard: 1 }]);
   }
 }

@@ -31,6 +31,6 @@ export class HeroListComponent implements OnInit {
 
   onSelect(hero: Hero) {
     // route to hero component
-    this._router.navigate(['HeroDetail', {id : hero.id }]);
+    this._router.navigate(['HeroDetail', {id : hero.id, dashboard : 0 }]);
   }
 }

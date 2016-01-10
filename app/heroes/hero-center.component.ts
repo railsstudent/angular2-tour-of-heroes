@@ -13,7 +13,7 @@ import {HeroDetailComponent} from './hero-detail.component';
 @RouteConfig([
   {path: '/', name: 'Heroes', component: HeroListComponent, useAsDefault: true},
   {path: '/:id', name: 'HeroHighlight', component: HeroListComponent },
-  {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent }
+  {path: '/hero/:id/:dashboard', name: 'HeroDetail', component: HeroDetailComponent }
 ])
 export class HeroCenterComponent {
 

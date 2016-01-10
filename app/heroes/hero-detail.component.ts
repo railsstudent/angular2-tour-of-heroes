@@ -10,6 +10,7 @@ import {HeroService} from './hero.service';
 
 export class HeroDetailComponent implements OnInit {
   public hero: Hero;
+  dashboard : number;
 
   constructor(private _router: Router,
     private _routeParams : RouteParams,
@@ -18,13 +19,18 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = this._routeParams.get('id');
+    this.dashboard = +this._routeParams.get('dashboard');
     this._heroService.getHero(id).then(hero => this.hero = hero);
   }
 
   gotoHeroes() {
      // <a [routerLink]="['Heroes']">Heroes</a>
     if (this.hero) {
-      this._router.navigate(['HeroHighlight', { 'id' : this.hero.id }]);
+      if (this.dashboard === 0) {
+         this._router.navigate(['HeroHighlight', { 'id' : this.hero.id }]);
+      } else {
+        this._router.navigate(['/HeroDashboard']);
+      }
     } else {
       this._router.navigate(['Heroes']);
     }
